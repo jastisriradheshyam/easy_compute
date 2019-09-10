@@ -179,9 +179,9 @@ function install_by_package_manager() {
     check_program $package_name;
     if [ $? -ne 0 ]; then
         if [ "$package_mgr" -eq 1 ]; then
-            apt install $package_name;
+            apt install -y $package_name;
         elif [ "$package_mgr" -eq 2 ]; then
-            eopkg install $package_name;
+            eopkg install -y $package_name;
         fi
         if [ $? -ne 0 ]; then
             success_message "successfully installed $package_name"
