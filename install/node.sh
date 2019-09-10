@@ -217,6 +217,7 @@ function install_node_extras() {
     start_message "installing node extras";
     install_by_package_manager make;
     install_by_package_manager g++;
+    install_by_package_manager python;
     install_by_npm node-gyp;
     success_message "done installing node extras";
 }
