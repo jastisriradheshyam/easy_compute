@@ -178,16 +178,24 @@ function install_by_package_manager() {
     start_message "installing package $package_name";
     check_program $package_name;
     if [ $? -ne 0 ]; then
-        if [ "$package_mgr" -eq 1 ]; then
-            apt install -y $package_name;
-        elif [ "$package_mgr" -eq 2 ]; then
-            eopkg install -y $package_name;
+        if [ "$verbose_opt" = 1 ]; then 
+            if [ "$package_mgr" -eq 1 ]; then
+                apt install -y $package_name;
+            elif [ "$package_mgr" -eq 2 ]; then
+                eopkg install -y $package_name;
+            fi
+        else
+            if [ "$package_mgr" -eq 1 ]; then
+                apt install -y $package_name > /dev/null 2>&1;
+            elif [ "$package_mgr" -eq 2 ]; then
+                eopkg install -y $package_name > /dev/null 2>&1;
+            fi 
         fi
         if [ $? -ne 0 ]; then
-            success_message "successfully installed $package_name"
-        else
             error_message "error installing $package_name";
             return 3;
+        else
+            success_message "successfully installed $package_name"
         fi
     else
         success_message "already installed $package_name";
@@ -200,12 +208,17 @@ function install_by_npm() {
     start_message "installing node package $package_name";
     check_program $package_name;
     if [ $? -ne 0 ]; then
-        npm i -g $package_name;
-        if [ $? -ne 0 ]; then
-            success_message "successfully installed node package: $package_name"
+        if [ "$verbose_opt" = 1 ]; then 
+            npm i -g $package_name;
         else
+            npm i -g $package_name > /dev/null 2>&1;
+        fi
+        
+        if [ $? -ne 0 ]; then
             error_message "error installing node package: $package_name";
             return 3;
+        else
+            success_message "successfully installed node package: $package_name"
         fi
     else
         success_message "already installed node package: $package_name";
@@ -231,4 +244,10 @@ download_and_extract_node
 
 # install the extra depenedencies of node which are used for compiling c++ files
 install_node_extras
+
+# notes
+# ------
+# apt-get install xz-utils
+# ------
+
 # ----- end of file -----
