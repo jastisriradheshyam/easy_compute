@@ -22,7 +22,7 @@ The specified packages has to be installed before starting with next section
     - grpcio
     - protobuf
 
-## Installing `scep256k1` python package:
+## Installing `secp256k1` python package:
 
 - clone the specific repository
     - https://github.com/stfairy/secp256k1-py.git
