@@ -28,7 +28,7 @@ The specified packages has to be installed before starting with next section
     - https://github.com/stfairy/secp256k1-py.git
 - change to secp256k1-py
     - `cd secp256k1-py`
-then run
+- then run
     - `sudo python3 setup.py install`
 
 ### Extra info:
