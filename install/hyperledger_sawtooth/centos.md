@@ -61,3 +61,13 @@ this repo has made the changes to the libsecp256k1 repo url by changing the comm
 - build the python files for cli stuff
     - `sudo python3 setup.py build`
 - now test the sawtooth by running sawtooth commands
+
+### Making executables globals
+
+- create /opt/sawtooth
+    - `mkdir -p /opt/sawtooth`
+- copy bin and cli to /opt/sawtooth
+    - `sudo cp -r bin cli /opt/sawtooth`
+    - Note: Run above code from sawtooth-core, so that the base directory should be `sawtooth-core`.
+- from `bin` directory make soft links of sawtooth executables
+    - `for f in *; do if [[ $f == *"saw"* ]]; then sudo ln -s "$(pwd)/$f" /usr/bin/$f; fi; done;`
