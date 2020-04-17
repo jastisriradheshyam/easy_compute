@@ -1,0 +1,24 @@
+version: "3.6"
+
+services:
+    flarum:
+        image: mondedie/flarum:stable-v0.1.0-beta.12
+        environment:
+            DB_HOST: some-ip
+            DB_USER: flarum
+            DB_PASS: flarum_pass
+            DB_NAME: flarum_db
+            FORUM_URL: http://some-ip-or-domain:8888
+            FLARUM_ADMIN_USER: admin_username
+            FLARUM_ADMIN_PASS: admin_password
+            FLARUM_ADMIN_MAIL: some@mail.com
+            FLARUM_TITLE: Org Forums
+        volumes:
+            - ./flarum/assets:/flarum/app/public/assets
+            - ./flarum/extensions:/flarum/app/extensions
+            - ./flarum/nginx:/etc/nginx/conf.d
+        entrypoint: >
+                sh -c "apk add php7-ldap &&
+                     /usr/local/bin/startup"
+        ports:
+            - 8888:8888
