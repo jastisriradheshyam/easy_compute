@@ -14,6 +14,7 @@ function printHelp() {
                      1 - APT
                      2 - EOPKG
                      Default - APT (1)
+                -v   verbose
 EOL
 }
 
@@ -32,6 +33,10 @@ while [[ $# -ge 1 ]]; do
         ;;
     -p)
         package_mgr="$2"
+        shift
+        ;;
+    -v)
+        verbose_opt=1
         shift
         ;;
     *)
@@ -64,14 +69,6 @@ color_red='\033[0;31m'
 color_green='\033[0;32m'
 color_none='\033[0m' # No Color
 # ----- color define [ end ] -----
-
-# iterating the options
-for opt in "$@"; do
-    # Check for echo option
-    if [ "$opt" = "-v" -o "$opt" = "--verbose" ]; then
-        verbose_opt=1
-    fi
-done
 
 # ----- message functions [ start ] -----
 
