@@ -9,7 +9,8 @@ Usage:
 
     Flags:
         -h   print help
-        --host set the host
+        --host set the host; usage: --host DOMAIN_NAME
+        --soff disable the strict host key checking for this domain
 EOL
 }
 
@@ -24,6 +25,9 @@ while [[ $# -ge 1 ]]; do
     --host)
         host="$2"
         shift
+        ;;
+    --soff)
+        soff="true"
         ;;
     *)
         echo
@@ -60,6 +64,9 @@ function move_public_key() {
 
 function set_config() {
     local text="\n## $host ##\nHost $host\n IdentityFile ~/.ssh/$host.pem\n"
+    if [ -n ${soff+x} ]; then
+        text="$text StrictHostKeyChecking No\n"
+    fi
     echo -e "$text" >>~/.ssh/config
     chmod 600 ~/.ssh/config
 }
