@@ -1,0 +1,3 @@
+- `sudo cp /usr/share/X11/xorg.conf.d/nvidia.conf /etc/X11/xorg.conf.d/nvidia.conf`
+- `akmodsbuild /usr/src/akmods/nvidia-kmod.latest`
+- `sudo rpm -i --force kmod-nvidia-5.18.6-200.fc36.x86_64-510.68.02-2.fc36.x86_64.rpm`
