@@ -9,8 +9,11 @@ Usage:
 
     Flags:
         -h   print help
-        --host set the host; usage: --host DOMAIN_NAME
+        --host set the host;         usage: --host DOMAIN_NAME
+        --hostname set the hostname; usage: --hostname DOMAIN_NAME
         --soff disable the strict host key checking for this domain
+
+    NOTE: host is how ssh knows the entity and hostname is actual instance address, if not defined it uses host value
 EOL
 }
 
@@ -24,6 +27,10 @@ while [[ $# -ge 1 ]]; do
         ;;
     --host)
         host="$2"
+        shift
+        ;;
+    --hostname)
+        hostname="$2"
         shift
         ;;
     --soff)
@@ -67,7 +74,15 @@ function move_public_key() {
 }
 
 function set_config() {
-    local text="\n## $host ##\nHost $host\n IdentityFile ~/.ssh/$host.pem\n"
+    local text="\n## $host ##\nHost $host" 
+    
+    # test -n "${var-}" to check if the variable is not empty (and hence must be defined/set too).
+    if [ ${hostname-} ]; then
+        text="${text}\n HostName ${hostname}"
+    fi
+    
+    text="${text}\n IdentityFile ~/.ssh/$host.pem\n"
+    
     if [ -n ${soff+x} ]; then
         text="$text StrictHostKeyChecking No\n"
     fi
