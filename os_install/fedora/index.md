@@ -80,3 +80,5 @@ Latest version: 36
 
 ## References:
 - https://www.jetbrains.com/lp/mono/
+- https://superuser.com/questions/446594/separate-up-arrow-lookback-for-local-and-global-zsh-history/691603
+- https://stackoverflow.com/questions/9502274/last-command-in-same-terminal
