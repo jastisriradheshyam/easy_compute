@@ -75,6 +75,8 @@ Latest version: 36
     #bindkey "^[[1;3A" up-line-or-local-history    # [ALT] + Cursor up
     #bindkey "^[[1;3B" down-line-or-local-history  # [ALT] + Cursor down
     ```
+- `btop`
+  - `sudo dnf install btop`
 ## Extras & Notes
 - Alternative to powerlevel10k is [starship shell prompt](https://starship.rs/)
 
