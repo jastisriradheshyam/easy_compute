@@ -17,7 +17,11 @@ Latest version: 36
     - User Themes
       - https://extensions.gnome.org/extension/19/user-themes/
     - Window List
-      - https://extensions.gnome.org/extension/602/window-list/  
+      - https://extensions.gnome.org/extension/602/window-list/
+    - `Burn My Windows` by `Simme`
+      - https://extensions.gnome.org/extension/4679/burn-my-windows/
+    - `Tactile` by `lundal`
+      - https://extensions.gnome.org/extension/4548/tactile/
   - Themes
     - Nord
       - https://github.com/EliverLara/Nordic
