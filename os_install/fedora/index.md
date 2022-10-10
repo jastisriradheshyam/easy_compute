@@ -1,6 +1,6 @@
 # Fedora setup
 
-Latest version: 36
+Latest version: 37
 
 ## List of applications & App specific customizations
 
@@ -31,6 +31,10 @@ Latest version: 36
     "editor.fontFamily": "JetBrains Mono, monospace, 'Droid Sans Mono'",
     "editor.fontLigatures": true
     ```
+  - GPU
+    - ```json
+      "terminal.integrated.gpuAcceleration": "on"
+      ```
   - for zsh powerlevel10k
     - `terminal.integrated.fontFamily` : `MesloLGS NF, monospace, Nerd Font, Source Code Pro`
   - Extentions
@@ -44,6 +48,7 @@ Latest version: 36
 - ZSH
   - `sudo dnf install zsh`
   - Oh my zsh : `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+    - Upgrade: `upgrade_oh_my_zsh` or `omz update`
   - Theme: powerlevel10k
     - `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
     - update `ZSH_THEME` to `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`
@@ -81,6 +86,12 @@ Latest version: 36
     ```
 - `btop`
   - `sudo dnf install btop`
+- Firefox
+  - `about:config`
+    - `layers.acceleration.force-enabled` : `true`
+      - In `about:support`, the `Compositing`	should be `WebRender` not `WebRender (Software)` after the change (requires restart)
+      - Not working with NVidia graphs, only works with Intel graphics
+    
 ## Extras & Notes
 - Alternative to powerlevel10k is [starship shell prompt](https://starship.rs/)
 
@@ -88,3 +99,5 @@ Latest version: 36
 - https://www.jetbrains.com/lp/mono/
 - https://superuser.com/questions/446594/separate-up-arrow-lookback-for-local-and-global-zsh-history/691603
 - https://stackoverflow.com/questions/9502274/last-command-in-same-terminal
+- https://fedoraproject.org/wiki/Firefox_Hardware_acceleration
+- https://www.michael1e.com/how-to-update-oh-my-zsh/
