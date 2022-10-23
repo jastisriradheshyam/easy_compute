@@ -91,6 +91,11 @@ Latest version: 37
     - `layers.acceleration.force-enabled` : `true`
       - In `about:support`, the `Compositing`	should be `WebRender` not `WebRender (Software)` after the change (requires restart)
       - Not working with NVidia graphs, only works with Intel graphics
+  - Extensions
+    - [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+    - [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/)
+    - [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
+    - [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
     
 ## Extras & Notes
 - Alternative to powerlevel10k is [starship shell prompt](https://starship.rs/)
