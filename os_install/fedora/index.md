@@ -96,6 +96,13 @@ Latest version: 37
     - [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/)
     - [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
     - [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
+- NVidia
+  - NVidia can be removed but disabling it will give flexibiltiy 
+  - Diabling will give fell snappy and also save power
+  - `sudo grubby --update-kernel=ALL --args=rd.driver.blacklist=nouveau,nvidia,nvidia_drm,nvidia_modeset,nvidia_uv`
+  - `sudo grubby --update-kernel=ALL --args=modprobe.blacklist=nouveau,nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm`
+  - `sudo grubby --update-kernel=ALL --args=nvidia-drm.modeset=0`
+  - `sudo systemctl disable nvidia-powerd.service`
     
 ## Extras & Notes
 - Alternative to powerlevel10k is [starship shell prompt](https://starship.rs/)
