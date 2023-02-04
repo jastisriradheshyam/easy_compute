@@ -97,13 +97,16 @@ Latest version: 37
     - [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
     - [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
 - NVidia
-  - NVidia can be removed but disabling it will give flexibiltiy 
-  - Diabling will give fell snappy and also save power
-  - `sudo grubby --update-kernel=ALL --args=rd.driver.blacklist=nouveau,nvidia,nvidia_drm,nvidia_modeset,nvidia_uv`
-  - `sudo grubby --update-kernel=ALL --args=modprobe.blacklist=nouveau,nvidia,nvidia_drm,nvidia_modeset,nvidia_uvm`
+  - NVidia can be removed but disabling it will give flexibility 
+  - Disabling will give fell snappy and also save power but due to inability of Linux to handle Nvidia hardware causes 100% usage of GPU so just install and disable by setting modeset to 0
+  - `sudo grubby --update-kernel=ALL --args=rd.driver.blacklist=nouveau`
+  - `sudo grubby --update-kernel=ALL --args=modprobe.blacklist=nouveau`
   - `sudo grubby --update-kernel=ALL --args=nvidia-drm.modeset=0`
   - `sudo systemctl disable nvidia-powerd.service`
-    
+  - If you want to disable drivers heres the list: `,nvidia,nvidia_drm,nvidia_modeset,nvidia_uv`
+- Intel Wifi
+  - Do not disable `nomsi` in `pci` inside the kernel parameters, it will cause wifi driver to fail, only disable aer by running this command: `sudo grubby --update-kernel=ALL --args=pci=noaer`
+    - issue: https://groups.google.com/g/linux.kernel/c/sNsk4MGvmXQ?pli=1
 ## Extras & Notes
 - Alternative to powerlevel10k is [starship shell prompt](https://starship.rs/)
 
