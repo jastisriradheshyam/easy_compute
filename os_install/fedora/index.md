@@ -107,6 +107,9 @@ Latest version: 37
 - Intel Wifi
   - Do not disable `nomsi` in `pci` inside the kernel parameters, it will cause wifi driver to fail, only disable aer by running this command: `sudo grubby --update-kernel=ALL --args=pci=noaer`
     - issue: https://groups.google.com/g/linux.kernel/c/sNsk4MGvmXQ?pli=1
+
+- System lags, video frame-rates drops, solution (for GNOME): `sudo systemctl restart gdm`
+  - https://forums.developer.nvidia.com/t/display-lags-freezes-after-suspend-with-prime-performance-mode/218146
 ## Extras & Notes
 - Alternative to powerlevel10k is [starship shell prompt](https://starship.rs/)
 
