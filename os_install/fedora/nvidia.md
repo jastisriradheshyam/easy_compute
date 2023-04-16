@@ -12,3 +12,9 @@
 - `sudo dnf remove xorg-x11-drv-nvidia`
 - `sudo dnf install akmod-nvidia`
 - And restart
+
+
+## Sleep to wakeup -> slow
+
+- `sudo systemctl restart thermald.service`
+- https://askubuntu.com/questions/1137739/noticeable-performance-drop-after-suspend-on-19-04

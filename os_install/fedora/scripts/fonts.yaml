@@ -1,0 +1,37 @@
+- hosts: localhost
+  connection: local
+  become: true
+  vars:
+    github_user: JetBrains
+    github_repo: JetBrainsMono
+  tasks:
+    - name: Get absolute path of playbook directory
+      set_fact:
+        playbook_dir: "{{ playbook_dir | default(inventory_dir) }}"
+
+    - name: Get latest release information
+      uri:
+        url: https://api.github.com/repos/{{ github_user }}/{{ github_repo }}/releases/latest
+        return_content: yes
+      register: release_info
+
+    - name: Extract download URL from release information
+      set_fact:
+        download_url: "{{ release_info.json.assets[0].browser_download_url }}"
+        file_name: "{{ release_info.json.assets[0].name }}"
+
+    - name: Make destination directory
+      file:
+       path: "{{ playbook_dir }}/fonts/"
+       state: directory
+
+    - name: Download package from GitHub
+      get_url:
+        url: "{{ download_url }}"
+        dest: "{{ playbook_dir }}/fonts/"
+    
+    - name: Extract zip
+      ansible.builtin.unarchive:
+        src: "{{ playbook_dir }}/fonts/{{ file_name }}"
+        dest: /usr/share/fonts
+        remote_src: yes
