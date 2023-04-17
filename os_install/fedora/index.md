@@ -92,6 +92,8 @@ Latest version: 37
       - In `about:support`, the `Compositing`	should be `WebRender` not `WebRender (Software)` after the change (requires restart)
       - Not working with NVidia graphs, only works with Intel graphics
   - Extensions
+    - [Netflix 1080p] (https://github.com/vladikoff/netflix-1080p-firefox/issues/63)
+      - Firefox removed it from official addons list, but available on github
     - [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     - [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/)
     - [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
