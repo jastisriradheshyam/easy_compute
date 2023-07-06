@@ -2,7 +2,7 @@ const { getCreds } = require("./get_creds");
 const creds = require('./creds.json');
 
 const doSignIn = async (JSESSIONID, PLAY_SESSION, access_token) => {
-  const response = await fetch(`https://${creds.companyCode}greythr.com/v3/api/attendance/mark-attendance?action=Signin`, {
+  const response = await fetch(`https://${creds.companyCode}.greythr.com/v3/api/attendance/mark-attendance?action=Signin`, {
     method: 'POST',
     body: JSON.stringify({ "attLocation": 56, "remarks": "" }),
     headers:
