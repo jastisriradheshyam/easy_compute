@@ -10,7 +10,7 @@ const getCookies = (cookiesStrings) => {
   return cookies;
 }
 
-const createNonce = async () => {
+const createNonce = () => {
   let t = "";
   const n = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   for (let e = 0; e < 40; e++)

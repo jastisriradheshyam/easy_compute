@@ -18,8 +18,11 @@ const doSignIn = async (JSESSIONID, PLAY_SESSION, access_token) => {
 }
 
 const checkSwipes = async (JSESSIONID, PLAY_SESSION, access_token) => {
+  const controller = new AbortController();
+  const signal = controller.signal;
   const response = await fetch(`https://${creds.companyCode}.greythr.com/v3/api/attendance/swipes`, {
     method: 'GET',
+    signal: signal,
     headers:
     {
       'accept': 'application/json',
@@ -28,7 +31,9 @@ const checkSwipes = async (JSESSIONID, PLAY_SESSION, access_token) => {
   });
   console.log(response.status);
   console.log(response.headers);
-  console.log((response.headers.get('content-type').includes('json')) ? await response.json() : await response.text());
+  swipeInfo = response.headers.get('content-type').includes('json') ? await response.json() : await response.text();
+  console.log(swipeInfo);
+  controller.abort();
 }
 
 const do_attend = async () => {

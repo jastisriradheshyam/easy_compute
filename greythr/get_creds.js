@@ -34,7 +34,7 @@ const loginPage = async (JSESSIONID) => {
 }
 
 const getLoginChallenge = async (accessId) => {
-  const nonce = await createNonce();
+  const nonce = createNonce();
   const response = await fetch(`https://goth.greythr.com/oauth2/auth?response_type=id_token%20token&client_id=greythr&state=${encodeURIComponent(nonce)}&redirect_uri=https%3A%2F%2Fidp.greythr.com%2Fuas%2Fportal%2Fauth%2Fcallback&scope=openid%20offline&nonce=${encodeURIComponent(nonce)}&access_id=${encodeURIComponent(accessId)}&gt_user_token=&origin_user=`, {
     "referrer": `https://${creds.companyCode}.greythr.com/`,
     "method": "GET",
@@ -173,7 +173,11 @@ const getJSSESSIONGif = async (JSESSIONID, access_token) => {
 }
 
 const getJSSESSION = async (JSESSIONID, access_token) => {
+  const controller = new AbortController();
+  const signal = controller.signal;
+
   const response = await fetch(`https://${creds.companyCode}.greythr.com/home.do`, {
+    signal: signal,
     headers: {
       cookie: `JSESSIONID=${JSESSIONID}; access_token=${access_token}`
     }
@@ -181,6 +185,7 @@ const getJSSESSION = async (JSESSIONID, access_token) => {
   console.log(response.headers)
   console.log(getCookies(response.headers.getSetCookie()))
   const JSSESSION_Cookie_string = getCookies(response.headers.getSetCookie()).get('JSESSIONID');
+  controller.abort();
   return JSSESSION_Cookie_string;
 }
 
