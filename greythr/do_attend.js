@@ -44,4 +44,4 @@ const do_attend = async () => {
   await checkSwipes(JSESSIONID, PLAY_SESSION, access_token)
 }
 
-do_attend()
+do_attend().finally(()=> { process.exit(0); })
