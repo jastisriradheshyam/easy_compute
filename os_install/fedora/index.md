@@ -112,8 +112,16 @@ Latest version: 37
 
 - System lags, video frame-rates drops, solution (for GNOME): `sudo systemctl restart gdm`
   - https://forums.developer.nvidia.com/t/display-lags-freezes-after-suspend-with-prime-performance-mode/218146
+- Flatpack apps
+  - Drawio : `sudo flatpak install flathub com.jgraph.drawio.desktop`
+  - Spotify : `sudo flatpak install flathub com.spotify.Client`
+  - Text Pieces : `sudo flatpak install flathub com.github.liferooter.textpieces`
+  - Junction: `sudo flatpak install flathub com.github.liferooter.textpieces`
 ## Extras & Notes
 - Alternative to powerlevel10k is [starship shell prompt](https://starship.rs/)
+- `fortivpn` error -> `Peer refused to agree to his IP address`
+  - Fix -> `sudo vi /etc/ppp/options`, append with this line: `ipcp-accept-remote` and save, and now try to run again
+  - Reference: https://github.com/adrienverge/openfortivpn/issues/1076#issuecomment-1713412200
 
 ## References:
 - https://www.jetbrains.com/lp/mono/
