@@ -94,6 +94,7 @@ Latest version: 37
   - Extensions
     - [Netflix 1080p] (https://github.com/vladikoff/netflix-1080p-firefox/issues/63)
       - Firefox removed it from official addons list, but available on github
+      - `ctrl + shift + alt + d` will show stats
     - [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     - [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/)
     - [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
