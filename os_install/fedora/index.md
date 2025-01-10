@@ -99,8 +99,11 @@ Latest version: 37
     - [Privacy Badger](https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/)
     - [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
     - [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
+  - Video hardware encoding
+    - `sudo dnf install intel-media-driver`
+    - `about:config` -> `media.ffmpeg.vaapi.enabled` -> `true`
 - NVidia
-  - NVidia can be removed but disabling it will give flexibility 
+  - NVidia can be removed but disabling it will give flexibility
   - Disabling will give fell snappy and also save power but due to inability of Linux to handle Nvidia hardware causes 100% usage of GPU so just install and disable by setting modeset to 0
   - `sudo grubby --update-kernel=ALL --args=rd.driver.blacklist=nouveau`
   - `sudo grubby --update-kernel=ALL --args=modprobe.blacklist=nouveau`
