@@ -137,3 +137,4 @@ Latest version: 37
 - https://fedoraproject.org/wiki/Firefox_Hardware_acceleration
 - https://www.michael1e.com/how-to-update-oh-my-zsh/
 - https://www.reddit.com/r/linux/comments/xcikym/tutorial_how_to_enable_hardware_video/
+- https://codeberg.org/Chevek/Fedora-CCG/src/branch/main/fedora-CCG.sh
