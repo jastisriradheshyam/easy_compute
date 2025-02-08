@@ -126,6 +126,9 @@ Latest version: 37
 - `fortivpn` error -> `Peer refused to agree to his IP address`
   - Fix -> `sudo vi /etc/ppp/options`, append with this line: `ipcp-accept-remote` and save, and now try to run again
   - Reference: https://github.com/adrienverge/openfortivpn/issues/1076#issuecomment-1713412200
+- Hardware acceleration:
+  - `sudo dnf swap -y mesa-vdpau-drivers mesa-vdpau-drivers-freeworld`
+  - `sudo dnf swap -y mesa-va-drivers mesa-va-drivers-freeworld`
 
 ## References:
 - https://www.jetbrains.com/lp/mono/
@@ -133,3 +136,4 @@ Latest version: 37
 - https://stackoverflow.com/questions/9502274/last-command-in-same-terminal
 - https://fedoraproject.org/wiki/Firefox_Hardware_acceleration
 - https://www.michael1e.com/how-to-update-oh-my-zsh/
+- https://www.reddit.com/r/linux/comments/xcikym/tutorial_how_to_enable_hardware_video/
